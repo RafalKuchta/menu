@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<style>
+    * {
+        margin: 0;
+    }
+
+    nav {
+        display: flex;
+        height: 10vh;
+        background-color: #ddd;
+        overflow: hidden;
+    }
+
+    nav a {
+        flex-grow: 1;
+        text-align: center;
+        line-height: 10vh;
+        text-decoration: none;
+        font-family: arial;
+        color: black;
+        font-size: 30px;
+    }
+
+    nav a:hover {
+        text-decoration: underline;
+
+    }
+
+    section {
+        height: 80vh;
+    }
+
+    .s1 {
+        background-color: red;
+    }
+
+    .s2 {
+        background-color: green;
+    }
+
+    .s3 {
+        background-color: blue;
+    }
+
+    .s4 {
+        background-color: yellow;
+    }
+
+    footer {
+        height: 10vh;
+        background-color: lightgreen;
+        line-height: 10vh;
+        text-align: center;
+        font-family: arial;
+        font-size: 30px;
+    }
+</style>
+
+<body>
+    <nav>
+        <a class="me" href="#">O mnie</a>
+        <a class="portfolio" href="#">Portfolio</a>
+        <a class="offer" href="#">Oferta</a>
+        <a class="contact" href="#">Kontakt</a>
+    </nav>
+
+    <section data-section="me" id="me" class="s1"></section>
+    <section data-section="portfolio" id="portfolio" class="s2"></section>
+    <section data-section="offer" id="offer" class="s3"></section>
+    <section data-section="contact" id="contact" class="s4"></section>
+
+    <footer>Stopka</footer>
+    <script src="jquery-3.3.1.min.js"></script>
+    <script>
+        // $('.me').on("click", function () {
+        //     $('body, html').animate({
+        //         scrollTop: $('.s1').offset().top
+        //     })
+        // })
+
+        $('nav a').on('click', function () {
+            const goToSection = "[data-section=" + $(this).attr('class') + "]";
+            $("body, html").animate({
+                scrollTop: $(goToSection).offset().top
+            })
+        })
+    </script>
+</body>
+
+</html>
